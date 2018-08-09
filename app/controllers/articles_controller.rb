@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  #  lists all the posts
   def index
     @articles = Article.all
   end
@@ -7,14 +8,17 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  # create a new post
   def new
     @article = Article.new
   end
 
+  # edit view
   def edit
     @article = Article.find(params[:id])
   end
 
+  # create a post
   def create
     @article = Article.new(article_params)
 
@@ -22,6 +26,17 @@ class ArticlesController < ApplicationController
       redirect_to @article
     else
       render 'new'
+    end
+  end
+
+  # update the post content
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
     end
   end
 
