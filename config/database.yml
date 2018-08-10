@@ -5,7 +5,6 @@
 #   gem 'postgresql'
 #
 default: &default
-  host: localhost
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
