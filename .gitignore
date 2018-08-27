@@ -30,4 +30,5 @@
 # Ignore Spring files.
 /spring/*.pid
 
+# ignore the master.key as it is confidential
 /config/master.key
