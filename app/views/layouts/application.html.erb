@@ -3,13 +3,19 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
   </head>
+  <body class="homepage is-preload">
+  	<div id="page-wrapper">
 
-  <body>
-    <%= yield %>
+				<%= render 'layouts/header' %>
+        <section id="main">
+          <%= yield %>
+          <%= render 'layouts/footer' %>
+        </section>
+    </div>
   </body>
 </html>
