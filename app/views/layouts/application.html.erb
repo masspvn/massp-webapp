@@ -9,10 +9,14 @@
     <%= render 'layouts/shim' %>
   </head>
   <body class="homepage is-preload">
+    <%= debug(params) if Rails.env.development? %>
   	<div id="page-wrapper">
 
 				<%= render 'layouts/header' %>
         <section id="main">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-#{message_type}"><%= message %></div>
+          <% end %>
           <%= yield %>
           <%= render 'layouts/footer' %>
         </section>
