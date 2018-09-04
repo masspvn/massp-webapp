@@ -32,5 +32,3 @@
 
 # ignore the master.key as it is confidential
 /config/master.key
-
-Gemfile.lock
