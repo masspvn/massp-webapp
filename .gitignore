@@ -32,3 +32,6 @@
 
 # ignore the master.key as it is confidential
 /config/master.key
+
+# Ignore uploaded test images.
+/public/uploads
