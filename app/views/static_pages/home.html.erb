@@ -1,0 +1,81 @@
+<section id="header">
+  <!-- Banner -->
+    <section id="banner">
+      <header>
+        <h2>Howdy. This is Dopetrope.</h2>
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+      </header>
+    </section>
+
+  <!-- Intro -->
+    <section id="intro" class="container">
+      <div class="row">
+        <div class="col-4 col-12-medium">
+          <section class="first">
+            <i class="icon featured fa-cog"></i>
+            <header>
+              <h2>Ipsum consequat</h2>
+            </header>
+            <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+          </section>
+        </div>
+        <div class="col-4 col-12-medium">
+          <section class="middle">
+            <i class="icon featured alt fa-flash"></i>
+            <header>
+              <h2>Magna etiam dolor</h2>
+            </header>
+            <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+          </section>
+        </div>
+        <div class="col-4 col-12-medium">
+          <section class="last">
+            <i class="icon featured alt2 fa-star"></i>
+            <header>
+              <h2>Tempus adipiscing</h2>
+            </header>
+            <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+          </section>
+        </div>
+      </div>
+      <footer>
+        <ul class="actions">
+          <li><a href="#" class="button large">Get Started</a></li>
+          <li><a href="#" class="button alt large">Learn More</a></li>
+        </ul>
+      </footer>
+    </section>
+</section>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the Sample App</h1>
+
+    <h2>
+      This is the home page for the
+      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <%= link_to image_tag("rails.png", alt: "Rails logo"),
+              'http://rubyonrails.org/' %>
+<% end %>
