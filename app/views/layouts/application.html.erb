@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
   </head>
+  <body class="homepage is-preload">
+    <%= debug(params) if Rails.env.development? %>
+  	<div id="page-wrapper">
 
-  <body>
-    <%= yield %>
+				<%= render 'layouts/header' %>
+        <section id="main">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-#{message_type}"><%= message %></div>
+          <% end %>
+          <%= yield %>
+          <%= render 'layouts/footer' %>
+        </section>
+    </div>
   </body>
 </html>
